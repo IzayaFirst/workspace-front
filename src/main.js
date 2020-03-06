@@ -11,7 +11,7 @@ Vue.config.productionTip = false
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
-new Vue({
+window.app = new Vue({
   el: '#app',
   store,
   router,

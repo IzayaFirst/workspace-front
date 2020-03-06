@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import CreateCandidate from '../components/CreateCandidate';
+import CreateCandidate from '../pages/createcandidate';
 
 
 Vue.use(Router);
