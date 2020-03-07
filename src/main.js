@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import Notifications from 'vue-notification'
+
 import store from './store'
 import router from './router'
 import App from './App.vue'
@@ -8,6 +10,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './style/main.css'
 
 Vue.config.productionTip = false
+Vue.use(Notifications);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 

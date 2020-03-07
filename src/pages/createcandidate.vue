@@ -1,7 +1,6 @@
 <template>
   <div class="workspace-container">
     <b-container>
-      <h5>Create your account</h5>
       <candidate-form></candidate-form>
     </b-container>
   </div>

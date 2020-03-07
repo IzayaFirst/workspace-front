@@ -1,3 +1,7 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
 .workspace-container {
   margin-top: 45px;
 }

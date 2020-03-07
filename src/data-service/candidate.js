@@ -45,5 +45,13 @@ export default {
         technology_field
       })
     });
+  },
+  getCandidateProfile(candidate_id) {
+    return fetch(`${API_URL}/candidates/profile?candidate_id=${candidate_id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
   }
 };
