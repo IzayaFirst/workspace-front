@@ -5,6 +5,9 @@ import CandidateProfile from "../pages/candidateProfile";
 import AllPosition from "../pages/allPosition";
 import Position from "../pages/Position";
 import whoApplyPosition from '../pages/whoApply';
+import applyHistory from '../pages/applyHistory';
+import positionFeedback from '../pages/positionFeedback'
+import Summary from '../pages/getSummary';
 
 Vue.use(Router);
 
@@ -35,7 +38,18 @@ export default new Router({
       path: "/whoApply",
       name: "Who apply job",
       component: whoApplyPosition
-
+    },
+    {
+      path: "/applyHistory",
+      name: "apply Hist",
+      component: applyHistory
+    }, {
+      path: '/feedback',
+      component: positionFeedback,
+    },
+    {
+      path: '/summary',
+      component: Summary,
     }
   ]
 });

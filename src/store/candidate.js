@@ -27,7 +27,7 @@ export default {
     archeivements: [],
     workExperiences: [],
     skills: [],
-    candidateLanguage: [],
+    candidateLanguages: [],
   },
   getters: {},
   actions: {
@@ -38,15 +38,25 @@ export default {
       }).then((response) => {
         const {
           candidateProfile,
+          archeivements,
+          candidateLanguages,
+          educations,
+          skills,
+          workExperiences,
         } = response.data
         const [candidate] = candidateProfile
-        console.log('candidate', candidate)
         Object.keys(candidate).forEach((candidateAttribute) => {
           commit('setCandidateFieldsState', {
             id: candidateAttribute,
             value: candidate[candidateAttribute]
           })
         })
+        commit('setState', { key: 'educations', value: educations})
+        commit('setState', { key: 'archeivements', value: archeivements})
+        commit('setState', { key: 'skills', value: skills})
+        commit('setState', { key: 'workExperiences', value: workExperiences})
+        commit('setState', { key: 'candidateLanguages', value: candidateLanguages})
+
       }).catch((err) => {
         console.log('err', err)
       })
@@ -68,6 +78,9 @@ export default {
   mutations: {
     setCandidateId(state, candidate_id) {
       state.candidate_id = candidate_id;
+    },
+    setState(state, { key, value}) {
+      state[key] = value
     },
     setCandidateFieldsState(state, { id, value}) {
       state.candidateFields[id] = value
