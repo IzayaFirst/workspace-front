@@ -9,7 +9,12 @@
       <b-col v-if="position">
         <b-card :title="position.title">
           <template v-slot:header>
-            <b-button size="sm" variant="success" style="float: right">
+            <b-button
+              @click="applyPosition"
+              size="sm"
+              variant="success"
+              style="float: right"
+            >
               Apply
             </b-button>
           </template>
@@ -46,27 +51,40 @@ export default {
   name: "position",
   data: function() {
     return {
-      position: null
+      position: null,
+      candidate_id: 1
     };
   },
   mounted() {
     const { position_id } = this.$route.query;
     if (position_id) {
+      this.position_id = position_id;
       fetch(`${API_URL}/positions/findById?position_id=${position_id}`)
         .then(response => response.json())
         .then(({ data }) => {
           this.position = data[0];
         })
-        .catch(err => {
-          console.error(err);
-        });
+        .catch(err => err);
+    }
+  },
+  methods: {
+    applyPosition() {
+      console.log('apply')
+      fetch(
+        `${API_URL}/positions/apply?position_id=${this.position_id}&candidate_id=${this.candidate_id}`
+      )
+        .then(response => response.json())
+        .then(({ data }) => {
+          console.log("apply", data);
+        })
+        .catch(err => err);
     }
   }
 };
 </script>
 <style lang="css">
-  .container {
-    width: 768px !important;
-    margin: 0 auto;
-  }
+.container {
+  width: 768px !important;
+  margin: 0 auto;
+}
 </style>

@@ -4,6 +4,7 @@ import CreateCandidate from "../pages/createcandidate";
 import CandidateProfile from "../pages/candidateProfile";
 import AllPosition from "../pages/allPosition";
 import Position from "../pages/Position";
+import whoApplyPosition from '../pages/whoApply';
 
 Vue.use(Router);
 
@@ -29,6 +30,12 @@ export default new Router({
       path: "/jobs",
       name: "All job",
       component: AllPosition
+    },
+    {
+      path: "/whoApply",
+      name: "Who apply job",
+      component: whoApplyPosition
+
     }
   ]
 });
